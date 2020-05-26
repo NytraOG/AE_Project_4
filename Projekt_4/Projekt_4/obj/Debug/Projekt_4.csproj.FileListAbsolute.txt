@@ -1,0 +1,15 @@
+C:\Users\chnyt\source\repos\Projekt_4\Projekt_4\bin\Debug\Projekt_4.exe.config
+C:\Users\chnyt\source\repos\Projekt_4\Projekt_4\bin\Debug\Projekt_4.exe
+C:\Users\chnyt\source\repos\Projekt_4\Projekt_4\bin\Debug\Projekt_4.pdb
+C:\Users\chnyt\source\repos\Projekt_4\Projekt_4\obj\Debug\Projekt_4.csprojAssemblyReference.cache
+C:\Users\chnyt\source\repos\Projekt_4\Projekt_4\obj\Debug\MainWindow.g.cs
+C:\Users\chnyt\source\repos\Projekt_4\Projekt_4\obj\Debug\App.g.cs
+C:\Users\chnyt\source\repos\Projekt_4\Projekt_4\obj\Debug\Projekt_4_MarkupCompile.cache
+C:\Users\chnyt\source\repos\Projekt_4\Projekt_4\obj\Debug\Projekt_4_MarkupCompile.lref
+C:\Users\chnyt\source\repos\Projekt_4\Projekt_4\obj\Debug\MainWindow.baml
+C:\Users\chnyt\source\repos\Projekt_4\Projekt_4\obj\Debug\Projekt_4.g.resources
+C:\Users\chnyt\source\repos\Projekt_4\Projekt_4\obj\Debug\Projekt_4.Properties.Resources.resources
+C:\Users\chnyt\source\repos\Projekt_4\Projekt_4\obj\Debug\Projekt_4.csproj.GenerateResource.cache
+C:\Users\chnyt\source\repos\Projekt_4\Projekt_4\obj\Debug\Projekt_4.csproj.CoreCompileInputs.cache
+C:\Users\chnyt\source\repos\Projekt_4\Projekt_4\obj\Debug\Projekt_4.exe
+C:\Users\chnyt\source\repos\Projekt_4\Projekt_4\obj\Debug\Projekt_4.pdb

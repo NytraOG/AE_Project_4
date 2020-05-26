@@ -1,0 +1,11 @@
+C:\Users\chnyt\source\repos\Projekt_4\Projekt_4.Library\bin\Release\Projekt_4.Library.dll
+C:\Users\chnyt\source\repos\Projekt_4\Projekt_4.Library\bin\Release\Projekt_4.Library.pdb
+C:\Users\chnyt\source\repos\Projekt_4\Projekt_4.Library\bin\Release\Dapper.dll
+C:\Users\chnyt\source\repos\Projekt_4\Projekt_4.Library\bin\Release\System.Data.SQLite.dll
+C:\Users\chnyt\source\repos\Projekt_4\Projekt_4.Library\bin\Release\Dapper.xml
+C:\Users\chnyt\source\repos\Projekt_4\Projekt_4.Library\bin\Release\System.Data.SQLite.xml
+C:\Users\chnyt\source\repos\Projekt_4\Projekt_4.Library\bin\Release\System.Data.SQLite.dll.config
+C:\Users\chnyt\source\repos\Projekt_4\Projekt_4.Library\obj\Release\Projekt_4.Library.csproj.CoreCompileInputs.cache
+C:\Users\chnyt\source\repos\Projekt_4\Projekt_4.Library\obj\Release\Projekt_4.Library.csproj.CopyComplete
+C:\Users\chnyt\source\repos\Projekt_4\Projekt_4.Library\obj\Release\Projekt_4.Library.dll
+C:\Users\chnyt\source\repos\Projekt_4\Projekt_4.Library\obj\Release\Projekt_4.Library.pdb
