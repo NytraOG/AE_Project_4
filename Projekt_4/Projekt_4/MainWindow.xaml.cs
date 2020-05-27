@@ -84,6 +84,13 @@ namespace Projekt_4
             }
         }
 
+        private void OnGotFocus(object sender, RoutedEventArgs e)
+        {
+            var selectedBox = e.OriginalSource as TextBox;
+
+            selectedBox?.SelectAll();
+        }
+
         private void OnLostFocus(object sender, RoutedEventArgs e)
         {
             try
@@ -122,7 +129,15 @@ namespace Projekt_4
 
         private void Clear_Click(object sender, RoutedEventArgs e)
         {
-            ClearTextboxes();
+            try
+            {
+                ClearTextboxes();
+                AddressListBox.UnselectAll();
+            }
+            catch (Exception exception)
+            {
+                GenerateErrorPopup(exception);
+            }
         }
 
         private void OnClick_RefreshList(object sender, RoutedEventArgs e)
