@@ -28,6 +28,11 @@ namespace Projekt_4.Library
             return list;
         }
 
+        public void UpdateIpAddress(IpAddressModel addressToDelete, IpAddressModel newAddress)
+        {
+
+        }
+
         public void AddIpAddress(IpAddressModel address)
         {
             var connString = LoadConnectionstring();

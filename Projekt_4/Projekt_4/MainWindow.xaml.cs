@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Input;
 using Projekt_4.Library;
 using Projekt_4.Library.Models;
 
@@ -41,6 +43,24 @@ namespace Projekt_4
                 GenerateErrorPopup(exception);
             }
         }
+        private void AddressListBox_OnMouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            try
+            {
+                var selectedAddress = (IpAddressModel)AddressListBox.SelectedItems[0];
+                RenderIpAddress(selectedAddress);
+
+                var defaultSubnet = manager.GenerateDefaultSubnetMask(selectedAddress);
+                RenderSubnetMask(defaultSubnet);
+
+                var networkAddress = manager.CalculateNetworkAddress(subnet1.Text, subnet2.Text, subnet3.Text, subnet4.Text, selectedAddress);
+                RenderNetworkAddress(networkAddress);
+            }
+            catch (Exception exception)
+            {
+                GenerateErrorPopup(exception);
+            }
+        }
 
         private void OnClick_DeleteAddressEntry(object sender, RoutedEventArgs e)
         {
@@ -48,7 +68,7 @@ namespace Projekt_4
             {
                 var address = AddressListBox.SelectedItems;
 
-                if (address == null || address.Count < 1)
+                if (address.Count < 1)
                     throw new Exception("Select an entry before trying to delete it. lol");
 
                 dataLayer.DeleteEntry((IpAddressModel) address[0]);
@@ -82,6 +102,7 @@ namespace Projekt_4
                 GenerateErrorPopup(exception);
             }
         }
+
         private void Subnet_OnTextChanged(object sender, TextChangedEventArgs e)
         {
             if (!string.IsNullOrWhiteSpace(subnet1.Text) && !string.IsNullOrWhiteSpace(subnet2.Text) &&
@@ -90,6 +111,9 @@ namespace Projekt_4
                 var model = ModelProvider.Create(byte1.Text, byte2.Text, byte3.Text, byte4.Text);
                 var networkAddress = manager.CalculateNetworkAddress(subnet1.Text, subnet2.Text, subnet3.Text, subnet4.Text, model);
                 RenderNetworkAddress(networkAddress);
+
+                var broadcastAddress = manager.CalculateBroadcastAddress(subnet1.Text, subnet2.Text, subnet3.Text, subnet4.Text, model);
+                RenderBroadcastAddress(broadcastAddress);
             }
         }
 
@@ -122,6 +146,7 @@ namespace Projekt_4
             subnet3.Clear();
             subnet4.Clear();
             NetworkAddress.Text = string.Empty;
+            BroadcastAddress.Text = string.Empty;
         }
 
         private IpAddressModel CreateAddressModel()
@@ -144,6 +169,14 @@ namespace Projekt_4
             AddToListBoxDatasource();
         }
 
+        private void RenderIpAddress(IpAddressModel selectedAddress)
+        {
+            byte1.Text = selectedAddress.Byte_1.ToString();
+            byte2.Text = selectedAddress.Byte_2.ToString();
+            byte3.Text = selectedAddress.Byte_3.ToString();
+            byte4.Text = selectedAddress.Byte_4.ToString();
+        }
+
         private void RenderSubnetMask(string[] defaultSubnet)
         {
             subnet1.Text = string.IsNullOrWhiteSpace(defaultSubnet[0]) ? "NA" : defaultSubnet[0];
@@ -156,8 +189,11 @@ namespace Projekt_4
         {
             NetworkAddress.Text = $"{input[0]}.{input[1]}.{input[2]}.{input[3]}";
         }
+        private void RenderBroadcastAddress(int[] broadcastAddress)
+        {
+            BroadcastAddress.Text = $"{broadcastAddress[0]}.{broadcastAddress[1]}.{broadcastAddress[2]}.{broadcastAddress[3]}";
+        }
 
         #endregion
-
     }
 }

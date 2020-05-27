@@ -78,6 +78,49 @@ namespace Projekt_4.Library
             return retVal;
         }
 
+        public int[] CalculateBroadcastAddress(string subnet1, string subnet2, string subnet3, string subnet4, IpAddressModel model)
+        {
+            var ipAddress = AddressToBits(model.Byte_1.ToString(), model.Byte_2.ToString(), model.Byte_3.ToString(), model.Byte_4.ToString());
+            var subnetMask = AddressToBits(subnet1, subnet2, subnet3, subnet4);
+            var hostBitMask = CalculateHostBitMask(subnetMask);
+            var broadcastAddressInBit = new List<bool[]>();
+
+            for (int i = 0; i < ipAddress.Count; i++)
+            {
+                var broadcastAddressByte = new bool[8];
+
+                for (int j = 0; j < 8; j++)
+                {
+                    broadcastAddressByte[j] = ipAddress[i][j] | hostBitMask[i][j];
+                }
+
+                broadcastAddressInBit.Add(broadcastAddressByte);
+            }
+
+            var retVal = BitArrayToInt(broadcastAddressInBit);
+
+            return retVal;
+        }
+
+        private List<bool[]> CalculateHostBitMask(List<bool[]> subnetMask)
+        {
+            var retVal = new List<bool[]>();
+
+            foreach (var segment in subnetMask)
+            {
+                var hostMaskByte = new bool[8];
+
+                for (int i = 0; i < segment.Length; i++)
+                {
+                    hostMaskByte[i] = !segment[i];
+                }
+
+                retVal.Add(hostMaskByte);
+            }
+
+            return retVal;
+        }
+
         public void CalculateCidrNotation(string subnet1, string subnet2, string subnet3, string subnet4, IpAddressModel model)
         {
             ClassifyIpAddress(model);
