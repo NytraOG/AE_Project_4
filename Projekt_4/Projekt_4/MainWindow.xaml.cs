@@ -12,14 +12,14 @@ namespace Projekt_4
     /// </summary>
     public partial class MainWindow : Window
     {
-        private readonly AddressManager manager;
-        private List<IpAddressModel> addresses;
+        private readonly DataAccessHelper data;
+        private readonly List<IpAddressModel> addresses;
 
         public MainWindow()
         {
             InitializeComponent();
             WindowStartupLocation = WindowStartupLocation.CenterScreen;
-            manager = new AddressManager();
+            data = new DataAccessHelper();
             addresses = new List<IpAddressModel>();
         }
 
@@ -27,7 +27,7 @@ namespace Projekt_4
         {
             try
             {
-                manager.AddIpAddress(CreateAddressModel());
+                data.AddIpAddress(CreateAddressModel());
 
                 ClearTextboxes();
 
@@ -35,16 +35,14 @@ namespace Projekt_4
             }
             catch (Exception exception)
             {
-                var popup = new ErrorPopup();
-                popup.ErrorWindow.Text = exception.Message;
-                popup.ShowDialog();
+                GenerateErrorPopup(exception);
             }
         }
 
         private void OnClick_RefreshList(object sender, RoutedEventArgs e)
         {
             addresses.Clear();
-            addresses.AddRange(manager.GetIpAddresses());
+            addresses.AddRange(data.GetIpAddresses());
 
             AddToListBoxDatasource();
         }
@@ -58,15 +56,13 @@ namespace Projekt_4
                 if (address == null || address.Count < 1)
                     throw new Exception("Select an entry before trying to delete it. lol");
 
-                manager.DeleteEntry((IpAddressModel)address[0]);
+                data.DeleteEntry((IpAddressModel)address[0]);
 
                 OnClick_RefreshList(sender, e);
             }
             catch (Exception exception)
             {
-                var popup = new ErrorPopup();
-                popup.ErrorWindow.Text = exception.Message;
-                popup.ShowDialog();
+                GenerateErrorPopup(exception);
             }
         }
 
@@ -89,5 +85,24 @@ namespace Projekt_4
             return ModelProvider.Create(byte1.Text, byte2.Text, byte3.Text, byte4.Text);
         }
 
+        private void OnLostFocus(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                if(!string.IsNullOrWhiteSpace(byte1.Text) && !string.IsNullOrWhiteSpace(byte2.Text) && !string.IsNullOrWhiteSpace(byte3.Text) && !string.IsNullOrWhiteSpace(byte4.Text))
+                    throw new NotImplementedException();
+            }
+            catch (Exception exception)
+            {
+                GenerateErrorPopup(exception);
+            }
+        }
+
+        private void GenerateErrorPopup(Exception ex)
+        {
+            var popup = new ErrorPopup();
+            popup.ErrorWindow.Text = ex.Message;
+            popup.ShowDialog();
+        }
     }
 }

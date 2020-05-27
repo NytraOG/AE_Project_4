@@ -1,5 +1,5 @@
 ﻿using System;
-using System.Configuration;
+using Projekt_4.Library.Enum;
 
 namespace Projekt_4.Library.Models
 {
@@ -15,10 +15,12 @@ namespace Projekt_4.Library.Models
         public int Byte_2 { get; set; }
         public int Byte_3 { get; set; }
         public int Byte_4 { get; set; }
+        public int Subnet { get; set; }
+        public IpAddress Classification { get; set; }
 
         public override string ToString()
         {
-            return $"{Byte_1}.{Byte_2}.{Byte_3}.{Byte_4}";
+            return $"{Byte_1}.{Byte_2}.{Byte_3}.{Byte_4}\\{Subnet}";
         }
 
         private int GenerateRandomId()
@@ -26,7 +28,7 @@ namespace Projekt_4.Library.Models
             var retVal = string.Empty;
             var rng = new Random();
 
-            for (int i = 0; i < 9; i++)
+            for (var i = 0; i < 9; i++)
             {
                 var nummer = rng.Next(0, 10);
 

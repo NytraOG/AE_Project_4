@@ -9,3 +9,15 @@ C:\Users\chnyt\source\repos\Projekt_4\Projekt_4.Library\obj\Debug\Projekt_4.Libr
 C:\Users\chnyt\source\repos\Projekt_4\Projekt_4.Library\obj\Debug\Projekt_4.Library.csproj.CopyComplete
 C:\Users\chnyt\source\repos\Projekt_4\Projekt_4.Library\obj\Debug\Projekt_4.Library.dll
 C:\Users\chnyt\source\repos\Projekt_4\Projekt_4.Library\obj\Debug\Projekt_4.Library.pdb
+D:\Repos\AE_Project_4\Projekt_4\Projekt_4.Library\bin\Debug\Projekt_4.Library.dll
+D:\Repos\AE_Project_4\Projekt_4\Projekt_4.Library\bin\Debug\Projekt_4.Library.pdb
+D:\Repos\AE_Project_4\Projekt_4\Projekt_4.Library\bin\Debug\Dapper.dll
+D:\Repos\AE_Project_4\Projekt_4\Projekt_4.Library\bin\Debug\System.Data.SQLite.dll
+D:\Repos\AE_Project_4\Projekt_4\Projekt_4.Library\bin\Debug\Dapper.xml
+D:\Repos\AE_Project_4\Projekt_4\Projekt_4.Library\bin\Debug\System.Data.SQLite.xml
+D:\Repos\AE_Project_4\Projekt_4\Projekt_4.Library\bin\Debug\System.Data.SQLite.dll.config
+D:\Repos\AE_Project_4\Projekt_4\Projekt_4.Library\obj\Debug\Projekt_4.Library.csprojAssemblyReference.cache
+D:\Repos\AE_Project_4\Projekt_4\Projekt_4.Library\obj\Debug\Projekt_4.Library.csproj.CoreCompileInputs.cache
+D:\Repos\AE_Project_4\Projekt_4\Projekt_4.Library\obj\Debug\Projekt_4.Library.csproj.CopyComplete
+D:\Repos\AE_Project_4\Projekt_4\Projekt_4.Library\obj\Debug\Projekt_4.Library.dll
+D:\Repos\AE_Project_4\Projekt_4\Projekt_4.Library\obj\Debug\Projekt_4.Library.pdb
