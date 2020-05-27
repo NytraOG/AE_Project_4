@@ -31,10 +31,12 @@ namespace Projekt_4
         {
             try
             {
-                var model = CreateAddressModel();
-                manager.CalculateCidrNotation(subnet1.Text, subnet2.Text, subnet3.Text, subnet4.Text, model);
+                var newModel = CreateAddressModel();
+                var oldModel = AddressListBox.SelectedItems.Count > 0 ? (IpAddressModel)AddressListBox.SelectedItems[0] : null;
+
+                manager.CalculateCidrNotation(subnet1.Text, subnet2.Text, subnet3.Text, subnet4.Text, newModel);
                 
-                dataLayer.AddIpAddress(model);
+                dataLayer.AddIpAddress(newModel, oldModel);
                 ClearTextboxes();
                 Refresh();
             }
@@ -43,6 +45,7 @@ namespace Projekt_4
                 GenerateErrorPopup(exception);
             }
         }
+
         private void AddressListBox_OnMouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
             try

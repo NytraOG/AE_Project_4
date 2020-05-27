@@ -28,18 +28,16 @@ namespace Projekt_4.Library
             return list;
         }
 
-        public void UpdateIpAddress(IpAddressModel addressToDelete, IpAddressModel newAddress)
-        {
-
-        }
-
-        public void AddIpAddress(IpAddressModel address)
+        public void AddIpAddress(IpAddressModel newAddress, IpAddressModel oldAddress)
         {
             var connString = LoadConnectionstring();
-            
+
+            if(oldAddress != null)
+                DeleteEntry(oldAddress);
+
             using (IDbConnection connection = new SQLiteConnection(connString))
             {
-                var query = $"Insert into IpAddress Values({address.Id}, {address.Byte_1}, {address.Byte_2}, {address.Byte_3}, {address.Byte_4}, {address.Subnet})";
+                var query = $"Insert into IpAddress Values({newAddress.Id}, {newAddress.Byte_1}, {newAddress.Byte_2}, {newAddress.Byte_3}, {newAddress.Byte_4}, {newAddress.Subnet})";
                 connection.Execute(query);
             }
         }
