@@ -4,6 +4,7 @@
     {
         ClassA,
         ClassB,
-        ClassC
+        ClassC,
+        ClassD
     }
 }
