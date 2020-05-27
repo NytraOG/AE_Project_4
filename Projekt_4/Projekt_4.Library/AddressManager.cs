@@ -34,7 +34,7 @@ namespace Projekt_4.Library
             
             using (IDbConnection connection = new SQLiteConnection(connString))
             {
-                var query = $"Insert into IpAddress Values({address.Id}, {address.Byte_1}, {address.Byte_2}, {address.Byte_3}, {address.Byte_4}, {address.Port})";
+                var query = $"Insert into IpAddress Values({address.Id}, {address.Byte_1}, {address.Byte_2}, {address.Byte_3}, {address.Byte_4})";
                 connection.Execute(query);
             }
         }
@@ -52,7 +52,7 @@ namespace Projekt_4.Library
 
             using (IDbConnection connection = new SQLiteConnection(connString))
             {
-                var query = $"DELETE FROM IpAddress WHere Byte_1 = '{address.Byte_1}' AND Byte_2 = '{address.Byte_2}' AND Byte_3 = '{address.Byte_3}' AND Byte_4 = '{address.Byte_4}' AND Port = '{address.Port}'";
+                var query = $"DELETE FROM IpAddress WHere Byte_1 = '{address.Byte_1}' AND Byte_2 = '{address.Byte_2}' AND Byte_3 = '{address.Byte_3}' AND Byte_4 = '{address.Byte_4}'";
 
                 connection.Execute(query);
             }

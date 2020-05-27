@@ -15,11 +15,10 @@ namespace Projekt_4.Library.Models
         public int Byte_2 { get; set; }
         public int Byte_3 { get; set; }
         public int Byte_4 { get; set; }
-        public int Port { get; set; }
 
         public override string ToString()
         {
-            return $"{Byte_1}.{Byte_2}.{Byte_3}.{Byte_4}:{Port}";
+            return $"{Byte_1}.{Byte_2}.{Byte_3}.{Byte_4}";
         }
 
         private int GenerateRandomId()

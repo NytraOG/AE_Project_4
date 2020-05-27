@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Projekt_4"
         mc:Ignorable="d"
-        Title="MainWindow" Height="296.322" Width="430.136" Icon="Bitmap_Pirate.png">
+        Title="Der IP-Persistator" Height="296.322" Width="430.136" Icon="Bitmap_Pirate.png">
     <StackPanel Background="#FFE2E2E2">
         <Grid HorizontalAlignment="Left" Height="268" Width="424">
             <Grid HorizontalAlignment="Left" Height="248" Margin="211,10,0,0" VerticalAlignment="Top" Width="203" RenderTransformOrigin="1.491,-0.748">
@@ -15,7 +15,6 @@
             </Grid>
             <Grid HorizontalAlignment="Left" Height="248" Margin="10,10,0,0" VerticalAlignment="Top" Width="196">
                 <TextBlock HorizontalAlignment="Left" Height="29" Margin="10,10,0,0" TextWrapping="Wrap" Text="ADD IP-ADDRESS" VerticalAlignment="Top" Width="195" FontWeight="Bold" TextDecorations="Underline" FontSize="20"/>
-                <TextBlock HorizontalAlignment="Left" Height="18" Margin="23,92,0,0" TextWrapping="Wrap" Text="Port" VerticalAlignment="Top" Width="163"/>
                 <TextBox HorizontalAlignment="Left" Name="byte1" Height="20" Margin="23,67,0,0" TextWrapping="Wrap" TextAlignment="Center" Text="" VerticalAlignment="Top" Width="30" MaxLength="3"/>
                 <TextBox HorizontalAlignment="Left" Name="byte2" Height="20" Margin="67,67,0,0" TextWrapping="Wrap" TextAlignment="Center" Text="" VerticalAlignment="Top" Width="30" MaxLength="3"/>
                 <TextBox HorizontalAlignment="Left" Name="byte3" Height="20" Margin="111,67,0,0" TextWrapping="Wrap" TextAlignment="Center" Text="" VerticalAlignment="Top" Width="30" MaxLength="3"/>
@@ -23,9 +22,16 @@
                 <TextBlock HorizontalAlignment="Left" Height="23" Margin="58,64,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="4"><Run FontSize="20" Text="."/><LineBreak/><Run/></TextBlock>
                 <TextBlock HorizontalAlignment="Left" Height="23" Margin="102,64,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="4"><Run FontSize="20" Text="."/><LineBreak/><Run/></TextBlock>
                 <TextBlock HorizontalAlignment="Left" Height="23" Margin="146,64,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="4"><Run FontSize="20" Text="."/><LineBreak/><Run/></TextBlock>
-                <TextBox HorizontalAlignment="Left" Name="port" Height="20" Margin="23,115,0,0" TextWrapping="Wrap" TextAlignment="Center" Text="" VerticalAlignment="Top" Width="40" MaxLength="4"/>
-                <Button Content="Add" HorizontalAlignment="Left" Height="26" Margin="87,111,0,0" VerticalAlignment="Top" Width="86" Click="OnClick_AddAddress"/>
+                <Button Content="Add" HorizontalAlignment="Left" Height="26" Margin="55,212,0,0" VerticalAlignment="Top" Width="86" Click="OnClick_AddAddress"/>
                 <TextBlock HorizontalAlignment="Left" Height="18" Margin="23,44,0,0" TextWrapping="Wrap" Text="IPv4" VerticalAlignment="Top" Width="163"/>
+                <TextBox HorizontalAlignment="Left" x:Name="byte1_Copy" Height="20" Margin="23,115,0,0" TextWrapping="Wrap" TextAlignment="Center" Text="" VerticalAlignment="Top" Width="30" MaxLength="3"/>
+                <TextBlock HorizontalAlignment="Left" Height="18" Margin="23,92,0,0" TextWrapping="Wrap" Text="Subnet Mask" VerticalAlignment="Top" Width="163"/>
+                <TextBlock HorizontalAlignment="Left" Height="23" Margin="58,113,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="4"><Run FontSize="20" Text="."/><LineBreak/><Run/></TextBlock>
+                <TextBox HorizontalAlignment="Left" x:Name="byte2_Copy" Height="20" Margin="67,115,0,0" TextWrapping="Wrap" TextAlignment="Center" Text="" VerticalAlignment="Top" Width="30" MaxLength="3"/>
+                <TextBlock HorizontalAlignment="Left" Height="23" Margin="102,113,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="4"><Run FontSize="20" Text="."/><LineBreak/><Run/></TextBlock>
+                <TextBox HorizontalAlignment="Left" x:Name="byte3_Copy" Height="20" Margin="111,115,0,0" TextWrapping="Wrap" TextAlignment="Center" Text="" VerticalAlignment="Top" Width="30" MaxLength="3"/>
+                <TextBlock HorizontalAlignment="Left" Height="23" Margin="146,113,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="4"><Run FontSize="20" Text="."/><LineBreak/><Run/></TextBlock>
+                <TextBox HorizontalAlignment="Left" x:Name="byte3_Copy1" Height="20" Margin="155,115,0,0" TextWrapping="Wrap" TextAlignment="Center" Text="" VerticalAlignment="Top" Width="30" MaxLength="3"/>
             </Grid>
         </Grid>
     </StackPanel>

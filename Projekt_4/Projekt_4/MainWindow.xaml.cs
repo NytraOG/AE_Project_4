@@ -82,25 +82,12 @@ namespace Projekt_4
             byte2.Clear();
             byte3.Clear();
             byte4.Clear();
-            port.Clear();
         }
 
         private IpAddressModel CreateAddressModel()
         {
-            return ModelProvider.Create(byte1.Text, byte2.Text, byte3.Text, byte4.Text, port.Text);
+            return ModelProvider.Create(byte1.Text, byte2.Text, byte3.Text, byte4.Text);
         }
 
-        private void RadioButton_Checked(object sender, RoutedEventArgs e)
-        {
-            if (Ipv4RadioButton.IsChecked != null)
-            {
-                byte1.IsEnabled = (bool)Ipv4RadioButton.IsChecked;
-                byte2.IsEnabled = (bool)Ipv4RadioButton.IsChecked;
-                byte3.IsEnabled = (bool)Ipv4RadioButton.IsChecked;
-                byte4.IsEnabled = (bool)Ipv4RadioButton.IsChecked;
-
-                ClearTextboxes();
-            }
-        }
     }
 }
