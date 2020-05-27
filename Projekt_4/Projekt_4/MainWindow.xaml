@@ -9,11 +9,13 @@
     <StackPanel Background="#FFE2E2E2">
         <Grid HorizontalAlignment="Left" Height="268" Width="424">
             <Grid HorizontalAlignment="Left" Height="248" Margin="211,10,0,0" VerticalAlignment="Top" Width="203" RenderTransformOrigin="1.491,-0.748">
-                <ListBox Name="AddressListBox" HorizontalAlignment="Left" Height="194" Margin="10,44,0,0" VerticalAlignment="Top" Width="183"/>
+                <ListBox Name="AddressListBox" HorizontalAlignment="Left" Height="193" Margin="10,10,0,0" VerticalAlignment="Top" Width="183"/>
+                <Button Content="Delete" HorizontalAlignment="Left" Margin="106,208,0,0" VerticalAlignment="Top" Width="87" Height="30" Click="OnClick_DeleteAddressEntry"/>
+                <Button Content="Refresh List" HorizontalAlignment="Left" Height="30" Margin="10,208,0,0" VerticalAlignment="Top" Width="84" Click="OnClick_RefreshList"/>
             </Grid>
             <Grid HorizontalAlignment="Left" Height="248" Margin="10,10,0,0" VerticalAlignment="Top" Width="196">
                 <TextBlock HorizontalAlignment="Left" Height="29" Margin="10,10,0,0" TextWrapping="Wrap" Text="ADD IP-ADDRESS" VerticalAlignment="Top" Width="195" FontWeight="Bold" TextDecorations="Underline" FontSize="20"/>
-                <TextBlock HorizontalAlignment="Left" Height="18" Margin="14,165,0,0" TextWrapping="Wrap" Text="Port" VerticalAlignment="Top" Width="182"/>
+                <TextBlock HorizontalAlignment="Left" Height="18" Margin="23,92,0,0" TextWrapping="Wrap" Text="Port" VerticalAlignment="Top" Width="163"/>
                 <TextBox HorizontalAlignment="Left" Name="byte1" Height="20" Margin="23,67,0,0" TextWrapping="Wrap" TextAlignment="Center" Text="" VerticalAlignment="Top" Width="30" MaxLength="3"/>
                 <TextBox HorizontalAlignment="Left" Name="byte2" Height="20" Margin="67,67,0,0" TextWrapping="Wrap" TextAlignment="Center" Text="" VerticalAlignment="Top" Width="30" MaxLength="3"/>
                 <TextBox HorizontalAlignment="Left" Name="byte3" Height="20" Margin="111,67,0,0" TextWrapping="Wrap" TextAlignment="Center" Text="" VerticalAlignment="Top" Width="30" MaxLength="3"/>
@@ -21,13 +23,9 @@
                 <TextBlock HorizontalAlignment="Left" Height="23" Margin="58,64,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="4"><Run FontSize="20" Text="."/><LineBreak/><Run/></TextBlock>
                 <TextBlock HorizontalAlignment="Left" Height="23" Margin="102,64,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="4"><Run FontSize="20" Text="."/><LineBreak/><Run/></TextBlock>
                 <TextBlock HorizontalAlignment="Left" Height="23" Margin="146,64,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="4"><Run FontSize="20" Text="."/><LineBreak/><Run/></TextBlock>
-                <TextBox HorizontalAlignment="Left" Name="port" Height="20" Margin="22,183,0,0" TextWrapping="Wrap" TextAlignment="Center" Text="" VerticalAlignment="Top" Width="40" MaxLength="4"/>
-                <Button Content="Add" HorizontalAlignment="Left" Height="26" Margin="99,177,0,0" VerticalAlignment="Top" Width="86" Click="OnClick_AddAddress"/>
-                <Button Content="Refresh List" HorizontalAlignment="Left" Height="30" Margin="10,208,0,0" VerticalAlignment="Top" Width="84" Click="OnClick_RefreshList"/>
-                <Button Content="Delete" HorizontalAlignment="Left" Margin="99,208,0,0" VerticalAlignment="Top" Width="87" Height="30" Click="OnClick_DeleteAddressEntry"/>
-                <RadioButton Name="Ipv4RadioButton" Content="IPv4" HorizontalAlignment="Left" Margin="23,47,0,0" VerticalAlignment="Top" IsChecked="True" Checked="RadioButton_Checked"/>
-                <TextBox Name="Hex1" HorizontalAlignment="Left" Height="23" Margin="23,123,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" />
-                <RadioButton Name="Ipv6RadioButton" Content="IPv6" HorizontalAlignment="Left" Margin="23,103,0,0" VerticalAlignment="Top" IsChecked="False" Checked="RadioButton_Checked"/>
+                <TextBox HorizontalAlignment="Left" Name="port" Height="20" Margin="23,115,0,0" TextWrapping="Wrap" TextAlignment="Center" Text="" VerticalAlignment="Top" Width="40" MaxLength="4"/>
+                <Button Content="Add" HorizontalAlignment="Left" Height="26" Margin="87,111,0,0" VerticalAlignment="Top" Width="86" Click="OnClick_AddAddress"/>
+                <TextBlock HorizontalAlignment="Left" Height="18" Margin="23,44,0,0" TextWrapping="Wrap" Text="IPv4" VerticalAlignment="Top" Width="163"/>
             </Grid>
         </Grid>
     </StackPanel>
