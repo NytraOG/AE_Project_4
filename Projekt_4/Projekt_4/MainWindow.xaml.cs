@@ -29,7 +29,7 @@ namespace Projekt_4
             try
             {
                 var model = CreateAddressModel();
-                manager.CalculateSubnetPrefix(subnet1.Text, subnet2.Text, subnet3.Text, subnet4.Text, model);
+                manager.CalculateCidrNotation(subnet1.Text, subnet2.Text, subnet3.Text, subnet4.Text, model);
 
                 dataLayer.AddIpAddress(model);
                 ClearTextboxes();
@@ -39,11 +39,6 @@ namespace Projekt_4
             {
                 GenerateErrorPopup(exception);
             }
-        }
-
-        private void OnClick_RefreshList(object sender, RoutedEventArgs e)
-        {
-            Refresh();
         }
 
         private void OnClick_DeleteAddressEntry(object sender, RoutedEventArgs e)
@@ -83,6 +78,16 @@ namespace Projekt_4
             {
                 GenerateErrorPopup(exception);
             }
+        }
+
+        private void Clear_Click(object sender, RoutedEventArgs e)
+        {
+            ClearTextboxes();
+        }
+
+        private void OnClick_RefreshList(object sender, RoutedEventArgs e)
+        {
+            Refresh();
         }
 
         #region HelperMethods

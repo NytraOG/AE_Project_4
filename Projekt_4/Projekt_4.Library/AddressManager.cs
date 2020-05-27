@@ -54,18 +54,65 @@ namespace Projekt_4.Library
             return retVal;
         }
 
-        public void CalculateSubnetPrefix(string subnet1, string subnet2, string subnet3, string subnet4, IpAddressModel model)
+        public int[] CalculateNetworkAddress(string subnet1, string subnet2, string subnet3, string subnet4, IpAddressModel model)
+        {
+            var ipAddress  = AddressToBits(model.Byte_1.ToString(), model.Byte_2.ToString(), model.Byte_3.ToString(), model.Byte_4.ToString());
+            var subnetMask = AddressToBits(subnet1, subnet2, subnet3, subnet4);
+            var networkAddressInBit = new List<bool[]>();
+
+            for (int i = 0; i < ipAddress.Count; i++)
+            {
+                var networkAddressByte = new bool[8];
+
+                for (int j = 0; j < 8; j++)
+                {
+                    networkAddressByte[j] = ipAddress[i][j] & subnetMask[i][j];
+                }
+
+                networkAddressInBit.Add(networkAddressByte);
+            }
+
+            var retVal = BitArrayToInt(networkAddressInBit);
+
+            return retVal;
+        }
+
+        public void CalculateCidrNotation(string subnet1, string subnet2, string subnet3, string subnet4, IpAddressModel model)
         {
             ClassifyIpAddress(model);
 
-            var subnetMask = SubnetToBits(subnet1, subnet2, subnet3, subnet4);
+            var subnetMask = AddressToBits(subnet1, subnet2, subnet3, subnet4);
 
             var retVal = CountTrueBits(subnetMask);
 
             model.Subnet = retVal;
         }
 
-        private int CountTrueBits(List<int[]> subnetMask)
+        private int[] BitArrayToInt(List<bool[]> input)
+        {
+            var retVal = new int[4];
+
+            for (int i = 0; i < input.Count; i++)
+            {
+                var memory = 0;
+
+                for (int j = 0; j < input[i].Length; j++)
+                {
+                    var bitValue = 128;
+
+                    if (input[i][j])
+                        memory += bitValue;
+
+                    bitValue /= 2;
+                }
+
+                retVal[i] = memory;
+            }
+
+            return retVal;
+        }
+
+        private int CountTrueBits(List<bool[]> subnetMask)
         {
             var counter = 0;
 
@@ -73,35 +120,33 @@ namespace Projekt_4.Library
             {
                 foreach (var bit in segment)
                 {
-                    if (bit == 1)
+                    if (bit)
                         counter++;
                 }
             }
 
             return counter;
         }
-        private List<int[]> SubnetToBits(string subnet1, string subnet2, string subnet3, string subnet4)
+        private List<bool[]> AddressToBits(string subnet1, string subnet2, string subnet3, string subnet4)
         {
-            var retVal = new List<int[]> {IntToBit(subnet1), IntToBit(subnet2), IntToBit(subnet3), IntToBit(subnet4)};
+            var retVal = new List<bool[]> {IntToBit(subnet1), IntToBit(subnet2), IntToBit(subnet3), IntToBit(subnet4)};
 
             return retVal;
         }
 
-        private int[] IntToBit(string integer)
+        private bool[] IntToBit(string integer)
         {
-            var retVal = new int[8];
+            var retVal = new bool[8];
 
             var memory = Convert.ToInt32(integer);
 
             for (int i = 0; i < retVal.Length; i++)
             {
-                retVal[i] = memory % 2 == 0 ? 0 : 1;
+                retVal[i] = memory % 2 == 1;
                 memory /= 2;
             }
 
             return retVal;
         }
-
-
     }
 }
