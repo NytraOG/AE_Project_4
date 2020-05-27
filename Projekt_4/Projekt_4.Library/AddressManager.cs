@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using Projekt_4.Library.Enum;
 using Projekt_4.Library.Models;
 
@@ -95,15 +96,15 @@ namespace Projekt_4.Library
             for (int i = 0; i < input.Count; i++)
             {
                 var memory = 0;
+                var bitValue = 1;
 
                 for (int j = 0; j < input[i].Length; j++)
                 {
-                    var bitValue = 128;
 
                     if (input[i][j])
                         memory += bitValue;
 
-                    bitValue /= 2;
+                    bitValue *= 2;
                 }
 
                 retVal[i] = memory;

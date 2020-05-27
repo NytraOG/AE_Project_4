@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Windows;
+using System.Windows.Controls;
 using Projekt_4.Library;
 using Projekt_4.Library.Models;
 
@@ -30,7 +31,7 @@ namespace Projekt_4
             {
                 var model = CreateAddressModel();
                 manager.CalculateCidrNotation(subnet1.Text, subnet2.Text, subnet3.Text, subnet4.Text, model);
-
+                
                 dataLayer.AddIpAddress(model);
                 ClearTextboxes();
                 Refresh();
@@ -70,13 +71,25 @@ namespace Projekt_4
                     var model = ModelProvider.Create(byte1.Text, byte2.Text, byte3.Text, byte4.Text);
 
                     var defaultSubnet = manager.GenerateDefaultSubnetMask(model);
-
                     RenderSubnetMask(defaultSubnet);
+
+                    var networkAddress = manager.CalculateNetworkAddress(subnet1.Text, subnet2.Text, subnet3.Text, subnet4.Text, model);
+                    RenderNetworkAddress(networkAddress);
                 }
             }
             catch (Exception exception)
             {
                 GenerateErrorPopup(exception);
+            }
+        }
+        private void Subnet_OnTextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (!string.IsNullOrWhiteSpace(subnet1.Text) && !string.IsNullOrWhiteSpace(subnet2.Text) &&
+                !string.IsNullOrWhiteSpace(subnet3.Text) && !string.IsNullOrWhiteSpace(subnet4.Text))
+            {
+                var model = ModelProvider.Create(byte1.Text, byte2.Text, byte3.Text, byte4.Text);
+                var networkAddress = manager.CalculateNetworkAddress(subnet1.Text, subnet2.Text, subnet3.Text, subnet4.Text, model);
+                RenderNetworkAddress(networkAddress);
             }
         }
 
@@ -108,6 +121,7 @@ namespace Projekt_4
             subnet2.Clear();
             subnet3.Clear();
             subnet4.Clear();
+            NetworkAddress.Text = string.Empty;
         }
 
         private IpAddressModel CreateAddressModel()
@@ -138,6 +152,12 @@ namespace Projekt_4
             subnet4.Text = defaultSubnet[3];
         }
 
+        private void RenderNetworkAddress(int[] input)
+        {
+            NetworkAddress.Text = $"{input[0]}.{input[1]}.{input[2]}.{input[3]}";
+        }
+
         #endregion
+
     }
 }
