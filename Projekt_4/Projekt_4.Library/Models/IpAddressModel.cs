@@ -20,7 +20,7 @@ namespace Projekt_4.Library.Models
 
         public override string ToString()
         {
-            return $"{Byte_1}.{Byte_2}.{Byte_3}.{Byte_4}\\{Subnet}";
+            return $"{Byte_1}.{Byte_2}.{Byte_3}.{Byte_4}/{Subnet}";
         }
 
         private int GenerateRandomId()

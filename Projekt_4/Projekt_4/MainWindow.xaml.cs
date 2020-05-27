@@ -9,14 +9,18 @@ namespace Projekt_4
     public partial class MainWindow : Window
     {
         private readonly List<IpAddressModel> addresses;
-        private readonly DataAccessHelper data;
+        private readonly DataAccessHelper dataLayer;
+        private readonly AddressManager manager;
 
         public MainWindow()
         {
             InitializeComponent();
             WindowStartupLocation = WindowStartupLocation.CenterScreen;
-            data = new DataAccessHelper();
+
+            dataLayer = new DataAccessHelper();
             addresses = new List<IpAddressModel>();
+            manager = new AddressManager();
+
             Refresh();
         }
 
@@ -24,11 +28,12 @@ namespace Projekt_4
         {
             try
             {
-                data.AddIpAddress(CreateAddressModel());
+                var model = CreateAddressModel();
+                manager.CalculateSubnetPrefix(subnet1.Text, subnet2.Text, subnet3.Text, subnet4.Text, model);
 
+                dataLayer.AddIpAddress(model);
                 ClearTextboxes();
-
-                OnClick_RefreshList(sender, e);
+                Refresh();
             }
             catch (Exception exception)
             {
@@ -50,7 +55,7 @@ namespace Projekt_4
                 if (address == null || address.Count < 1)
                     throw new Exception("Select an entry before trying to delete it. lol");
 
-                data.DeleteEntry((IpAddressModel) address[0]);
+                dataLayer.DeleteEntry((IpAddressModel) address[0]);
 
                 OnClick_RefreshList(sender, e);
             }
@@ -67,16 +72,11 @@ namespace Projekt_4
                 if (!string.IsNullOrWhiteSpace(byte1.Text) && !string.IsNullOrWhiteSpace(byte2.Text) &&
                     !string.IsNullOrWhiteSpace(byte3.Text) && !string.IsNullOrWhiteSpace(byte4.Text))
                 {
-                    var manager = new AddressManager();
                     var model = ModelProvider.Create(byte1.Text, byte2.Text, byte3.Text, byte4.Text);
 
-                    manager.ClassifyIpAddress(model);
                     var defaultSubnet = manager.GenerateDefaultSubnetMask(model);
 
-                    subnet1.Text = string.IsNullOrWhiteSpace(defaultSubnet[0]) ? "NA" : defaultSubnet[0];
-                    subnet2.Text = defaultSubnet[1];
-                    subnet3.Text = defaultSubnet[2];
-                    subnet4.Text = defaultSubnet[3];
+                    RenderSubnetMask(defaultSubnet);
                 }
             }
             catch (Exception exception)
@@ -120,9 +120,17 @@ namespace Projekt_4
         private void Refresh()
         {
             addresses.Clear();
-            addresses.AddRange(data.GetIpAddresses());
+            addresses.AddRange(dataLayer.GetIpAddresses());
 
             AddToListBoxDatasource();
+        }
+
+        private void RenderSubnetMask(string[] defaultSubnet)
+        {
+            subnet1.Text = string.IsNullOrWhiteSpace(defaultSubnet[0]) ? "NA" : defaultSubnet[0];
+            subnet2.Text = defaultSubnet[1];
+            subnet3.Text = defaultSubnet[2];
+            subnet4.Text = defaultSubnet[3];
         }
 
         #endregion
