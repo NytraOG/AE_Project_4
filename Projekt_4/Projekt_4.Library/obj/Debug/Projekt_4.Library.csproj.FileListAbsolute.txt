@@ -21,3 +21,16 @@ D:\Repos\AE_Project_4\Projekt_4\Projekt_4.Library\obj\Debug\Projekt_4.Library.cs
 D:\Repos\AE_Project_4\Projekt_4\Projekt_4.Library\obj\Debug\Projekt_4.Library.csproj.CopyComplete
 D:\Repos\AE_Project_4\Projekt_4\Projekt_4.Library\obj\Debug\Projekt_4.Library.dll
 D:\Repos\AE_Project_4\Projekt_4\Projekt_4.Library\obj\Debug\Projekt_4.Library.pdb
+C:\Users\skazemi\Desktop\Schule\AE_Project_4\Projekt_4\Projekt_4.Library\bin\Debug\Projekt_4.Library.dll
+C:\Users\skazemi\Desktop\Schule\AE_Project_4\Projekt_4\Projekt_4.Library\bin\Debug\Projekt_4.Library.pdb
+C:\Users\skazemi\Desktop\Schule\AE_Project_4\Projekt_4\Projekt_4.Library\bin\Debug\Dapper.dll
+C:\Users\skazemi\Desktop\Schule\AE_Project_4\Projekt_4\Projekt_4.Library\bin\Debug\System.Data.SQLite.dll
+C:\Users\skazemi\Desktop\Schule\AE_Project_4\Projekt_4\Projekt_4.Library\bin\Debug\Dapper.xml
+C:\Users\skazemi\Desktop\Schule\AE_Project_4\Projekt_4\Projekt_4.Library\bin\Debug\System.Data.SQLite.xml
+C:\Users\skazemi\Desktop\Schule\AE_Project_4\Projekt_4\Projekt_4.Library\bin\Debug\System.Data.SQLite.dll.config
+C:\Users\skazemi\Desktop\Schule\AE_Project_4\Projekt_4\Projekt_4.Library\obj\Debug\Projekt_4.Library.csprojAssemblyReference.cache
+C:\Users\skazemi\Desktop\Schule\AE_Project_4\Projekt_4\Projekt_4.Library\obj\Debug\Projekt_4.Library.csproj.CoreCompileInputs.cache
+C:\Users\skazemi\Desktop\Schule\AE_Project_4\Projekt_4\Projekt_4.Library\obj\Debug\Projekt_4.Library.csproj.CopyComplete
+C:\Users\skazemi\Desktop\Schule\AE_Project_4\Projekt_4\Projekt_4.Library\obj\Debug\Projekt_4.Library.dll
+C:\Users\skazemi\Desktop\Schule\AE_Project_4\Projekt_4\Projekt_4.Library\obj\Debug\Projekt_4.Library.pdb
+C:\Users\skazemi\Desktop\Schule\AE_Project_4\Projekt_4\Projekt_4.Library\bin\Debug\Projekt_4.Library.xml

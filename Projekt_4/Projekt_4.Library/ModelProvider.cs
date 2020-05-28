@@ -3,8 +3,19 @@ using Projekt_4.Library.Models;
 
 namespace Projekt_4.Library
 {
+    /// <summary>
+    /// ModelProvider Class
+    /// </summary>
     public static class ModelProvider
     {
+        /// <summary>
+        /// Creates the entered IP-Address Model
+        /// </summary>
+        /// <param name="byte1Text">The first Byte of the Address</param>
+        /// <param name="byte2Text">The second Byte of the Address</param>
+        /// <param name="byte3Text">The third Byte of the Address</param>
+        /// <param name="byte4Text">The fourth Byte of the Address</param>
+        /// <returns></returns>
         public static IpAddressModel Create(string byte1Text, string byte2Text, string byte3Text, string byte4Text)
         {
             var byte1Valid = int.TryParse(byte1Text, out var byte1Result);

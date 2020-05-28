@@ -6,8 +6,15 @@ using Projekt_4.Library.Models;
 
 namespace Projekt_4.Library
 {
+    /// <summary>
+    /// AddressManager Class
+    /// </summary>
     public class AddressManager
     {
+        /// <summary>
+        /// Determines the class of the given Ip
+        /// </summary>
+        /// <param name="model">The given IP-Adress</param>
         private void ClassifyIpAddress(IpAddressModel model)
         {
             if (model.Byte_1 >= 0 && model.Byte_1 < 128)
@@ -23,6 +30,11 @@ namespace Projekt_4.Library
                 model.Classification = IpAddress.ClassD;
         }
 
+        /// <summary>
+        /// Determines the Subnetmask of the given Ip-Adress
+        /// </summary>
+        /// <param name="model">The given IP-Adress</param>
+        /// <returns></returns>
         public string[] GenerateDefaultSubnetMask(IpAddressModel model)
         {
             ClassifyIpAddress(model);
@@ -54,7 +66,15 @@ namespace Projekt_4.Library
 
             return retVal;
         }
-
+        /// <summary>
+        /// Calculates the Network-Address
+        /// </summary>
+        /// <param name="subnet1">The first part of the Subnet-Address</param>
+        /// <param name="subnet2">The second part of the Subnet-Address</param>
+        /// <param name="subnet3">The third part of the Subnet-Address</param>
+        /// <param name="subnet4">The fourth part of the Subnet-Address</param>
+        /// <param name="model">The given Ip-Adress</param>
+        /// <returns></returns>
         public int[] CalculateNetworkAddress(string subnet1, string subnet2, string subnet3, string subnet4, IpAddressModel model)
         {
             var ipAddress  = AddressToBits(model.Byte_1.ToString(), model.Byte_2.ToString(), model.Byte_3.ToString(), model.Byte_4.ToString());
@@ -77,7 +97,15 @@ namespace Projekt_4.Library
 
             return retVal;
         }
-
+        /// <summary>
+        /// Calculates the Broadcast-Address of the given IP-Address
+        /// </summary>
+        /// <param name="subnet1">The first part of the Subnet-Address</param>
+        /// <param name="subnet2">The second part of the Subnet-Address</param>
+        /// <param name="subnet3">The third part of the Subnet-Address</param>
+        /// <param name="subnet4">The fourth part of the Subnet-Address</param>
+        /// <param name="model">The given IP-Address</param>
+        /// <returns></returns>
         public int[] CalculateBroadcastAddress(string subnet1, string subnet2, string subnet3, string subnet4, IpAddressModel model)
         {
             var ipAddress = AddressToBits(model.Byte_1.ToString(), model.Byte_2.ToString(), model.Byte_3.ToString(), model.Byte_4.ToString());
@@ -101,7 +129,11 @@ namespace Projekt_4.Library
 
             return retVal;
         }
-
+        /// <summary>
+        /// Calculates the Host-BitMask
+        /// </summary>
+        /// <param name="subnetMask">The given Subnet-Mask</param>
+        /// <returns></returns>
         private List<bool[]> CalculateHostBitMask(List<bool[]> subnetMask)
         {
             var retVal = new List<bool[]>();
@@ -121,6 +153,14 @@ namespace Projekt_4.Library
             return retVal;
         }
 
+        /// <summary>
+        /// Calculates the Cidr Notation of the given IP-Address
+        /// </summary>
+        /// <param name="subnet1">The first part of the Subnet-Address</param>
+        /// <param name="subnet2">The second part of the Subnet-Address</param>
+        /// <param name="subnet3">The third part of the Subnet-Address</param>
+        /// <param name="subnet4">The fourth part of the Subnet-Address</param>
+        /// <param name="model">The given IP-Address</param>
         public void CalculateCidrNotation(string subnet1, string subnet2, string subnet3, string subnet4, IpAddressModel model)
         {
             ClassifyIpAddress(model);
@@ -132,6 +172,11 @@ namespace Projekt_4.Library
             model.Subnet = retVal;
         }
 
+        /// <summary>
+        /// Converts the given BitArray to an IntegerArray
+        /// </summary>
+        /// <param name="input">The given Array to convert</param>
+        /// <returns></returns>
         private int[] BitArrayToInt(List<bool[]> input)
         {
             var retVal = new int[4];
@@ -171,6 +216,14 @@ namespace Projekt_4.Library
 
             return counter;
         }
+        /// <summary>
+        /// Converts the given Subnet-Address to Bits
+        /// </summary>
+        /// <param name="subnet1">The first part of the Subnet-Address</param>
+        /// <param name="subnet2">The second part of the Subnet-Address</param>
+        /// <param name="subnet3">The third part of the Subnet-Address</param>
+        /// <param name="subnet4">The fourth part of the Subnet-Address</param>
+        /// <returns></returns>
         private List<bool[]> AddressToBits(string subnet1, string subnet2, string subnet3, string subnet4)
         {
             var retVal = new List<bool[]> {IntToBit(subnet1), IntToBit(subnet2), IntToBit(subnet3), IntToBit(subnet4)};
@@ -178,6 +231,11 @@ namespace Projekt_4.Library
             return retVal;
         }
 
+        /// <summary>
+        /// Converts the given Integer to Bit
+        /// </summary>
+        /// <param name="integer">the given Integer</param>
+        /// <returns></returns>
         private bool[] IntToBit(string integer)
         {
             var retVal = new bool[8];

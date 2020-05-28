@@ -9,8 +9,15 @@ using Projekt_4.Library.Models;
 
 namespace Projekt_4.Library
 {
+    /// <summary>
+    /// DataAccessHelper Class<
+    /// </summary>
     public class DataAccessHelper
     {
+        /// <summary>
+        /// Returns the list of IP-Addresses
+        /// </summary>
+        /// <returns></returns>
         public List<IpAddressModel> GetIpAddresses()
         {
             var list = new List<IpAddressModel>();
@@ -28,6 +35,11 @@ namespace Projekt_4.Library
             return list;
         }
 
+        /// <summary>
+        /// Adds the new IP-Address
+        /// </summary>
+        /// <param name="newAddress">The new IP-Address entered by the user</param>
+        /// <param name="oldAddress">Checks if the same IP-Address ist already existing</param>
         public void AddIpAddress(IpAddressModel newAddress, IpAddressModel oldAddress)
         {
             var connString = LoadConnectionstring();
@@ -42,6 +54,10 @@ namespace Projekt_4.Library
             }
         }
 
+        /// <summary>
+        /// Deletes the given Address
+        /// </summary>
+        /// <param name="address">The given address</param>
         public void DeleteEntry(IpAddressModel address)
         {
             var connString = LoadConnectionstring();
@@ -53,7 +69,11 @@ namespace Projekt_4.Library
                 connection.Execute(query);
             }
         }
-
+        /// <summary>
+        /// Loads the SQL Connection string
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         private string LoadConnectionstring(string id = "Default")
         {
             var connString = ConfigurationManager.ConnectionStrings[id].ConnectionString;

@@ -1,0 +1,158 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Projekt_4.Library</name>
+    </assembly>
+    <members>
+        <!-- Badly formed XML comment ignored for member "T:Projekt_4.Library.DataAccessHelper" -->
+        <member name="M:Projekt_4.Library.DataAccessHelper.GetIpAddresses">
+            <summary>
+            Returns the list of IP-Addresses
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Projekt_4.Library.DataAccessHelper.AddIpAddress(Projekt_4.Library.Models.IpAddressModel,Projekt_4.Library.Models.IpAddressModel)">
+            <summary>
+            Adds the new IP-Address
+            </summary>
+            <param name="newAddress">The new IP-Address entered by the user</param>
+            <param name="oldAddress">Checks if the same IP-Address ist already existing</param>
+        </member>
+        <member name="M:Projekt_4.Library.DataAccessHelper.DeleteEntry(Projekt_4.Library.Models.IpAddressModel)">
+            <summary>
+            Deletes the given Address
+            </summary>
+            <param name="address">The given address</param>
+        </member>
+        <member name="M:Projekt_4.Library.DataAccessHelper.LoadConnectionstring(System.String)">
+            <summary>
+            Loads the SQL Connection string
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Projekt_4.Library.Enum.IpAddress">
+            <summary>
+            Defines the class of the given IpAdress
+            </summary>
+        </member>
+        <member name="T:Projekt_4.Library.ModelProvider">
+            <summary>
+            ModelProvider Class
+            </summary>
+        </member>
+        <member name="M:Projekt_4.Library.ModelProvider.Create(System.String,System.String,System.String,System.String)">
+            <summary>
+            Creates the entered IP-Address Model
+            </summary>
+            <param name="byte1Text">The first Byte of the Address</param>
+            <param name="byte2Text">The second Byte of the Address</param>
+            <param name="byte3Text">The third Byte of the Address</param>
+            <param name="byte4Text">The fourth Byte of the Address</param>
+            <returns></returns>
+        </member>
+        <member name="T:Projekt_4.Library.Models.IpAddressModel">
+            <summary>
+            Class IpAdressModel
+            </summary>
+        </member>
+        <member name="M:Projekt_4.Library.Models.IpAddressModel.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:Projekt_4.Library.Models.IpAddressModel.ToString">
+            <summary>
+            Converts the Bytes of the IpAdress to string.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Projekt_4.Library.Models.IpAddressModel.GenerateRandomId">
+            <summary>
+            Generates a random ID
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Projekt_4.Library.AddressManager">
+            <summary>
+            AddressManager Class
+            </summary>
+        </member>
+        <member name="M:Projekt_4.Library.AddressManager.ClassifyIpAddress(Projekt_4.Library.Models.IpAddressModel)">
+            <summary>
+            Determines the class of the given Ip
+            </summary>
+            <param name="model">The given IP-Adress</param>
+        </member>
+        <member name="M:Projekt_4.Library.AddressManager.GenerateDefaultSubnetMask(Projekt_4.Library.Models.IpAddressModel)">
+            <summary>
+            Determines the Subnetmask of the given Ip-Adress
+            </summary>
+            <param name="model">The given IP-Adress</param>
+            <returns></returns>
+        </member>
+        <member name="M:Projekt_4.Library.AddressManager.CalculateNetworkAddress(System.String,System.String,System.String,System.String,Projekt_4.Library.Models.IpAddressModel)">
+            <summary>
+            Calculates the Network-Address
+            </summary>
+            <param name="subnet1">The first part of the Subnet-Address</param>
+            <param name="subnet2">The second part of the Subnet-Address</param>
+            <param name="subnet3">The third part of the Subnet-Address</param>
+            <param name="subnet4">The fourth part of the Subnet-Address</param>
+            <param name="model">The given Ip-Adress</param>
+            <returns></returns>
+        </member>
+        <member name="M:Projekt_4.Library.AddressManager.CalculateBroadcastAddress(System.String,System.String,System.String,System.String,Projekt_4.Library.Models.IpAddressModel)">
+            <summary>
+            Calculates the Broadcast-Address of the given IP-Address
+            </summary>
+            <param name="subnet1">The first part of the Subnet-Address</param>
+            <param name="subnet2">The second part of the Subnet-Address</param>
+            <param name="subnet3">The third part of the Subnet-Address</param>
+            <param name="subnet4">The fourth part of the Subnet-Address</param>
+            <param name="model">The given IP-Address</param>
+            <returns></returns>
+        </member>
+        <member name="M:Projekt_4.Library.AddressManager.CalculateHostBitMask(System.Collections.Generic.List{System.Boolean[]})">
+            <summary>
+            Calculates the Host-BitMask
+            </summary>
+            <param name="subnetMask">The given Subnet-Mask</param>
+            <returns></returns>
+        </member>
+        <member name="M:Projekt_4.Library.AddressManager.CalculateCidrNotation(System.String,System.String,System.String,System.String,Projekt_4.Library.Models.IpAddressModel)">
+            <summary>
+            Calculates the Cidr Notation of the given IP-Address
+            </summary>
+            <param name="subnet1">The first part of the Subnet-Address</param>
+            <param name="subnet2">The second part of the Subnet-Address</param>
+            <param name="subnet3">The third part of the Subnet-Address</param>
+            <param name="subnet4">The fourth part of the Subnet-Address</param>
+            <param name="model">The given IP-Address</param>
+        </member>
+        <member name="M:Projekt_4.Library.AddressManager.BitArrayToInt(System.Collections.Generic.List{System.Boolean[]})">
+            <summary>
+            Converts the given BitArray to an IntegerArray
+            </summary>
+            <param name="input">The given Array to convert</param>
+            <returns></returns>
+        </member>
+        <member name="M:Projekt_4.Library.AddressManager.AddressToBits(System.String,System.String,System.String,System.String)">
+            <summary>
+            Converts the given Subnet-Address to Bits
+            </summary>
+            <param name="subnet1">The first part of the Subnet-Address</param>
+            <param name="subnet2">The second part of the Subnet-Address</param>
+            <param name="subnet3">The third part of the Subnet-Address</param>
+            <param name="subnet4">The fourth part of the Subnet-Address</param>
+            <returns></returns>
+        </member>
+        <member name="M:Projekt_4.Library.AddressManager.IntToBit(System.String)">
+            <summary>
+            Converts the given Integer to Bit
+            </summary>
+            <param name="integer">the given Integer</param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

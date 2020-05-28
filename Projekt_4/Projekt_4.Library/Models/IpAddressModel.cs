@@ -3,8 +3,14 @@ using Projekt_4.Library.Enum;
 
 namespace Projekt_4.Library.Models
 {
+    /// <summary>
+    /// Class IpAdressModel
+    /// </summary>
     public class IpAddressModel
     {
+        /// <summary>
+        /// Constructor
+        /// </summary>
         public IpAddressModel()
         {
             Id = GenerateRandomId();
@@ -18,11 +24,19 @@ namespace Projekt_4.Library.Models
         public int Subnet { get; set; }
         public IpAddress Classification { get; set; }
 
+        /// <summary>
+        /// Converts the Bytes of the IpAdress to string.
+        /// </summary>
+        /// <returns></returns>
         public override string ToString()
         {
             return $"{Byte_1}.{Byte_2}.{Byte_3}.{Byte_4}/{Subnet}";
         }
 
+        /// <summary>
+        /// Generates a random ID
+        /// </summary>
+        /// <returns></returns>
         private int GenerateRandomId()
         {
             var retVal = string.Empty;
