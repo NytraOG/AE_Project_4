@@ -60,7 +60,7 @@ namespace Projekt_4 {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/Projekt_4;component/errorpopup.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/Projekt_4.Frontend;component/errorpopup.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\ErrorPopup.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

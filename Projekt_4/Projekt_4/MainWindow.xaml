@@ -9,36 +9,85 @@
         Title="Der IP-Persistator" Height="305.322" Width="430.136" Icon="Bitmap_Pirate.png">
     <StackPanel Background="#FFE2E2E2">
         <Grid HorizontalAlignment="Left" Height="268" Width="424">
-            <Grid HorizontalAlignment="Left" Height="258" Margin="211,10,0,0" VerticalAlignment="Top" Width="203" RenderTransformOrigin="1.491,-0.748">
-                <ListBox Name="AddressListBox" HorizontalAlignment="Left" Height="207" Margin="10,10,0,0" VerticalAlignment="Top" Width="183" MouseDoubleClick="AddressListBox_OnMouseDoubleClick"/>
-                <Button Content="Delete" HorizontalAlignment="Left" Margin="106,222,0,0" VerticalAlignment="Top" Width="87" Height="26" Click="OnClick_DeleteAddressEntry"/>
-                <Button Content="Refresh List" HorizontalAlignment="Left" Height="26" Margin="10,222,0,0" VerticalAlignment="Top" Width="84" Click="OnClick_RefreshList"/>
+            <Grid HorizontalAlignment="Left" Height="258" Margin="211,10,0,0" VerticalAlignment="Top" Width="203"
+                  RenderTransformOrigin="1.491,-0.748">
+                <ListBox Name="AddressListBox" HorizontalAlignment="Left" Height="207" Margin="10,10,0,0"
+                         VerticalAlignment="Top" Width="183" MouseDoubleClick="AddressListBox_OnMouseDoubleClick" />
+                <Button Content="Delete" HorizontalAlignment="Left" Margin="106,222,0,0" VerticalAlignment="Top"
+                        Width="87" Height="26" Click="OnClick_DeleteAddressEntry" />
+                <Button Content="Refresh List" HorizontalAlignment="Left" Height="26" Margin="10,222,0,0"
+                        VerticalAlignment="Top" Width="84" Click="OnClick_RefreshList" />
             </Grid>
             <Grid HorizontalAlignment="Left" Height="258" Margin="10,10,0,0" VerticalAlignment="Top" Width="196">
-                <TextBlock HorizontalAlignment="Left" Height="26" Margin="10,0,-9,0" TextWrapping="Wrap" Text="ADD IP-ADDRESS" VerticalAlignment="Top" Width="195" FontWeight="Bold" TextDecorations="Underline" FontSize="20"/>
-                <TextBox HorizontalAlignment="Left" Name="byte1" Height="20" Margin="23,54,0,0" TextWrapping="Wrap" TextAlignment="Center" Text="" VerticalAlignment="Top" Width="30" MaxLength="3" LostFocus="OnLostFocus" GotFocus="OnGotFocus"/>
-                <TextBox HorizontalAlignment="Left" Name="byte2" Height="20" Margin="67,54,0,0" TextWrapping="Wrap" TextAlignment="Center" Text="" VerticalAlignment="Top" Width="30" MaxLength="3" LostFocus="OnLostFocus" GotFocus="OnGotFocus"/>
-                <TextBox HorizontalAlignment="Left" Name="byte3" Height="20" Margin="111,54,0,0" TextWrapping="Wrap" TextAlignment="Center" Text="" VerticalAlignment="Top" Width="30" MaxLength="3" LostFocus="OnLostFocus" GotFocus="OnGotFocus"/>
-                <TextBox HorizontalAlignment="Left" Name="byte4" Height="20" Margin="155,54,0,0" TextWrapping="Wrap" TextAlignment="Center" Text="" VerticalAlignment="Top" Width="30" MaxLength="3" LostFocus="OnLostFocus" GotFocus="OnGotFocus"/>
-                <TextBlock HorizontalAlignment="Left" Height="23" Margin="58,51,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="4"><Run FontSize="20" Text="."/><LineBreak/><Run/></TextBlock>
-                <TextBlock HorizontalAlignment="Left" Height="23" Margin="102,51,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="4"><Run FontSize="20" Text="."/><LineBreak/><Run/></TextBlock>
-                <TextBlock HorizontalAlignment="Left" Height="23" Margin="146,51,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="4"><Run FontSize="20" Text="."/><LineBreak/><Run/></TextBlock>
-                <Button Content="Add/Update" HorizontalAlignment="Left" Height="26" Margin="10,222,0,0" VerticalAlignment="Top" Width="86" Click="OnClick_AddAddress"/>
-                <TextBlock HorizontalAlignment="Left" Height="18" Margin="23,31,0,0" TextWrapping="Wrap" Text="IPv4" VerticalAlignment="Top" Width="163"/>
-                <TextBox HorizontalAlignment="Left" x:Name="subnet1" Height="20" Margin="23,101,0,0" TextWrapping="Wrap" TextAlignment="Center" Text="" VerticalAlignment="Top" Width="30" MaxLength="3" TextChanged="Subnet_OnTextChanged" GotFocus="OnGotFocus"/>
-                <TextBlock HorizontalAlignment="Left" Height="17" Margin="23,79,0,0" TextWrapping="Wrap" Text="Subnet Mask" VerticalAlignment="Top" Width="163"/>
-                <TextBlock HorizontalAlignment="Left" Height="23" Margin="58,98,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="4"><Run FontSize="20" Text="."/><LineBreak/><Run/></TextBlock>
-                <TextBox HorizontalAlignment="Left" x:Name="subnet2" Height="20" Margin="67,101,0,0" TextWrapping="Wrap" TextAlignment="Center" Text="" VerticalAlignment="Top" Width="30" MaxLength="3" TextChanged="Subnet_OnTextChanged" GotFocus="OnGotFocus"/>
-                <TextBlock HorizontalAlignment="Left" Height="23" Margin="102,98,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="4"><Run FontSize="20" Text="."/><LineBreak/><Run/></TextBlock>
-                <TextBox HorizontalAlignment="Left" x:Name="subnet3" Height="20" Margin="111,101,0,0" TextWrapping="Wrap" TextAlignment="Center" Text="" VerticalAlignment="Top" Width="30" MaxLength="3" TextChanged="Subnet_OnTextChanged" GotFocus="OnGotFocus"/>
-                <TextBlock HorizontalAlignment="Left" Height="23" Margin="146,98,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="4"><Run FontSize="20" Text="."/><LineBreak/><Run/></TextBlock>
-                <TextBox HorizontalAlignment="Left" x:Name="subnet4" Height="20" Margin="155,101,0,0" TextWrapping="Wrap" TextAlignment="Center" Text="" VerticalAlignment="Top" Width="30" MaxLength="3" TextChanged="Subnet_OnTextChanged" GotFocus="OnGotFocus"/>
-                <Button Content="Clear" HorizontalAlignment="Left" Margin="102,222,0,0" VerticalAlignment="Top" Width="86" Height="26" Click="Clear_Click"/>
-                <GroupBox Header="Network Address" HorizontalAlignment="Left" Height="40" Margin="10,126,0,0" VerticalAlignment="Top" Width="178">
-                    <TextBlock Name="NetworkAddress" HorizontalAlignment="Left" Height="18" Margin="10,0,0,-1" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="145" FontWeight="Bold" TextAlignment="Center"/>
+                <TextBlock HorizontalAlignment="Left" Height="26" Margin="10,0,-9,0" TextWrapping="Wrap"
+                           Text="ADD IP-ADDRESS" VerticalAlignment="Top" Width="195" FontWeight="Bold"
+                           TextDecorations="Underline" FontSize="20" />
+                <TextBox HorizontalAlignment="Left" Name="byte1" Height="20" Margin="23,54,0,0" TextWrapping="Wrap"
+                         TextAlignment="Center" Text="" VerticalAlignment="Top" Width="30" MaxLength="3"
+                         LostFocus="OnLostFocus" GotFocus="OnGotFocus" />
+                <TextBox HorizontalAlignment="Left" Name="byte2" Height="20" Margin="67,54,0,0" TextWrapping="Wrap"
+                         TextAlignment="Center" Text="" VerticalAlignment="Top" Width="30" MaxLength="3"
+                         LostFocus="OnLostFocus" GotFocus="OnGotFocus" />
+                <TextBox HorizontalAlignment="Left" Name="byte3" Height="20" Margin="111,54,0,0" TextWrapping="Wrap"
+                         TextAlignment="Center" Text="" VerticalAlignment="Top" Width="30" MaxLength="3"
+                         LostFocus="OnLostFocus" GotFocus="OnGotFocus" />
+                <TextBox HorizontalAlignment="Left" Name="byte4" Height="20" Margin="155,54,0,0" TextWrapping="Wrap"
+                         TextAlignment="Center" Text="" VerticalAlignment="Top" Width="30" MaxLength="3"
+                         LostFocus="OnLostFocus" GotFocus="OnGotFocus" />
+                <TextBlock HorizontalAlignment="Left" Height="23" Margin="58,51,0,0" TextWrapping="Wrap"
+                           VerticalAlignment="Top" Width="4">
+                    <Run FontSize="20" Text="." /><LineBreak /><Run />
+                </TextBlock>
+                <TextBlock HorizontalAlignment="Left" Height="23" Margin="102,51,0,0" TextWrapping="Wrap"
+                           VerticalAlignment="Top" Width="4">
+                    <Run FontSize="20" Text="." /><LineBreak /><Run />
+                </TextBlock>
+                <TextBlock HorizontalAlignment="Left" Height="23" Margin="146,51,0,0" TextWrapping="Wrap"
+                           VerticalAlignment="Top" Width="4">
+                    <Run FontSize="20" Text="." /><LineBreak /><Run />
+                </TextBlock>
+                <Button Content="Add/Update" HorizontalAlignment="Left" Height="26" Margin="10,222,0,0"
+                        VerticalAlignment="Top" Width="86" Click="OnClick_UpsertAddress" />
+                <TextBlock HorizontalAlignment="Left" Height="18" Margin="23,31,0,0" TextWrapping="Wrap" Text="IPv4"
+                           VerticalAlignment="Top" Width="163" />
+                <TextBox HorizontalAlignment="Left" x:Name="subnet1" Height="20" Margin="23,101,0,0"
+                         TextWrapping="Wrap" TextAlignment="Center" Text="" VerticalAlignment="Top" Width="30"
+                         MaxLength="3" TextChanged="Subnet_OnTextChanged" GotFocus="OnGotFocus" />
+                <TextBlock HorizontalAlignment="Left" Height="17" Margin="23,79,0,0" TextWrapping="Wrap"
+                           Text="Subnet Mask" VerticalAlignment="Top" Width="163" />
+                <TextBlock HorizontalAlignment="Left" Height="23" Margin="58,98,0,0" TextWrapping="Wrap"
+                           VerticalAlignment="Top" Width="4">
+                    <Run FontSize="20" Text="." /><LineBreak /><Run />
+                </TextBlock>
+                <TextBox HorizontalAlignment="Left" x:Name="subnet2" Height="20" Margin="67,101,0,0"
+                         TextWrapping="Wrap" TextAlignment="Center" Text="" VerticalAlignment="Top" Width="30"
+                         MaxLength="3" TextChanged="Subnet_OnTextChanged" GotFocus="OnGotFocus" />
+                <TextBlock HorizontalAlignment="Left" Height="23" Margin="102,98,0,0" TextWrapping="Wrap"
+                           VerticalAlignment="Top" Width="4">
+                    <Run FontSize="20" Text="." /><LineBreak /><Run />
+                </TextBlock>
+                <TextBox HorizontalAlignment="Left" x:Name="subnet3" Height="20" Margin="111,101,0,0"
+                         TextWrapping="Wrap" TextAlignment="Center" Text="" VerticalAlignment="Top" Width="30"
+                         MaxLength="3" TextChanged="Subnet_OnTextChanged" GotFocus="OnGotFocus" />
+                <TextBlock HorizontalAlignment="Left" Height="23" Margin="146,98,0,0" TextWrapping="Wrap"
+                           VerticalAlignment="Top" Width="4">
+                    <Run FontSize="20" Text="." /><LineBreak /><Run />
+                </TextBlock>
+                <TextBox HorizontalAlignment="Left" x:Name="subnet4" Height="20" Margin="155,101,0,0"
+                         TextWrapping="Wrap" TextAlignment="Center" Text="" VerticalAlignment="Top" Width="30"
+                         MaxLength="3" TextChanged="Subnet_OnTextChanged" GotFocus="OnGotFocus" />
+                <Button Content="Clear" HorizontalAlignment="Left" Margin="102,222,0,0" VerticalAlignment="Top"
+                        Width="86" Height="26" Click="Clear_Click" />
+                <GroupBox Header="Network Address" HorizontalAlignment="Left" Height="40" Margin="10,126,0,0"
+                          VerticalAlignment="Top" Width="178">
+                    <TextBlock Name="NetworkAddress" HorizontalAlignment="Left" Height="18" Margin="10,0,0,-1"
+                               TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="145" FontWeight="Bold"
+                               TextAlignment="Center" />
                 </GroupBox>
-                <GroupBox Header="Broadcast Address" HorizontalAlignment="Left" Height="40" Margin="10,171,0,0" VerticalAlignment="Top" Width="178">
-                    <TextBlock Name="BroadcastAddress" HorizontalAlignment="Left" Margin="10,0,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="145" FontWeight="Bold" TextAlignment="Center"/>
+                <GroupBox Header="Broadcast Address" HorizontalAlignment="Left" Height="40" Margin="10,171,0,0"
+                          VerticalAlignment="Top" Width="178">
+                    <TextBlock Name="BroadcastAddress" HorizontalAlignment="Left" Margin="10,0,0,0" TextWrapping="Wrap"
+                               Text="" VerticalAlignment="Top" Width="145" FontWeight="Bold" TextAlignment="Center" />
                 </GroupBox>
             </Grid>
         </Grid>

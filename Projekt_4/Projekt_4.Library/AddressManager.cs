@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using Projekt_4.Library.Enum;
 using Projekt_4.Library.Models;
 
@@ -27,23 +26,23 @@ namespace Projekt_4.Library
         {
             ClassifyIpAddress(model);
 
-            var retVal = new [] {"0","0","0","0"};
+            var retVal = new[] { "0", "0", "0", "0" };
 
             switch (model.Classification)
             {
-                case IpAddress.ClassA :
+                case IpAddress.ClassA:
                     retVal[0] = "255";
                     break;
-                case IpAddress.ClassB :
+                case IpAddress.ClassB:
                     retVal[0] = "255";
                     retVal[1] = "255";
                     break;
-                case IpAddress.ClassC :
+                case IpAddress.ClassC:
                     retVal[0] = "255";
                     retVal[1] = "255";
                     retVal[2] = "255";
                     break;
-                case IpAddress.ClassD :
+                case IpAddress.ClassD:
                     retVal[0] = "255";
                     retVal[1] = "255";
                     retVal[2] = "255";
@@ -57,18 +56,16 @@ namespace Projekt_4.Library
 
         public int[] CalculateNetworkAddress(string subnet1, string subnet2, string subnet3, string subnet4, IpAddressModel model)
         {
-            var ipAddress  = AddressToBits(model.Byte_1.ToString(), model.Byte_2.ToString(), model.Byte_3.ToString(), model.Byte_4.ToString());
-            var subnetMask = AddressToBits(subnet1, subnet2, subnet3, subnet4);
+            var ipAddress           = AddressToBits(model.Byte_1.ToString(), model.Byte_2.ToString(), model.Byte_3.ToString(), model.Byte_4.ToString());
+            var subnetMask          = AddressToBits(subnet1, subnet2, subnet3, subnet4);
             var networkAddressInBit = new List<bool[]>();
 
-            for (int i = 0; i < ipAddress.Count; i++)
+            for (var i = 0; i < ipAddress.Count; i++)
             {
                 var networkAddressByte = new bool[8];
 
-                for (int j = 0; j < 8; j++)
-                {
+                for (var j = 0; j < 8; j++)
                     networkAddressByte[j] = ipAddress[i][j] & subnetMask[i][j];
-                }
 
                 networkAddressInBit.Add(networkAddressByte);
             }
@@ -80,19 +77,17 @@ namespace Projekt_4.Library
 
         public int[] CalculateBroadcastAddress(string subnet1, string subnet2, string subnet3, string subnet4, IpAddressModel model)
         {
-            var ipAddress = AddressToBits(model.Byte_1.ToString(), model.Byte_2.ToString(), model.Byte_3.ToString(), model.Byte_4.ToString());
-            var subnetMask = AddressToBits(subnet1, subnet2, subnet3, subnet4);
-            var hostBitMask = CalculateHostBitMask(subnetMask);
+            var ipAddress             = AddressToBits(model.Byte_1.ToString(), model.Byte_2.ToString(), model.Byte_3.ToString(), model.Byte_4.ToString());
+            var subnetMask            = AddressToBits(subnet1, subnet2, subnet3, subnet4);
+            var hostBitMask           = CalculateHostBitMask(subnetMask);
             var broadcastAddressInBit = new List<bool[]>();
 
-            for (int i = 0; i < ipAddress.Count; i++)
+            for (var i = 0; i < ipAddress.Count; i++)
             {
                 var broadcastAddressByte = new bool[8];
 
-                for (int j = 0; j < 8; j++)
-                {
+                for (var j = 0; j < 8; j++)
                     broadcastAddressByte[j] = ipAddress[i][j] | hostBitMask[i][j];
-                }
 
                 broadcastAddressInBit.Add(broadcastAddressByte);
             }
@@ -110,10 +105,8 @@ namespace Projekt_4.Library
             {
                 var hostMaskByte = new bool[8];
 
-                for (int i = 0; i < segment.Length; i++)
-                {
+                for (var i = 0; i < segment.Length; i++)
                     hostMaskByte[i] = !segment[i];
-                }
 
                 retVal.Add(hostMaskByte);
             }
@@ -136,14 +129,13 @@ namespace Projekt_4.Library
         {
             var retVal = new int[4];
 
-            for (int i = 0; i < input.Count; i++)
+            for (var i = 0; i < input.Count; i++)
             {
-                var memory = 0;
+                var memory   = 0;
                 var bitValue = 1;
 
-                for (int j = 0; j < input[i].Length; j++)
+                for (var j = 0; j < input[i].Length; j++)
                 {
-
                     if (input[i][j])
                         memory += bitValue;
 
@@ -171,9 +163,10 @@ namespace Projekt_4.Library
 
             return counter;
         }
+
         private List<bool[]> AddressToBits(string subnet1, string subnet2, string subnet3, string subnet4)
         {
-            var retVal = new List<bool[]> {IntToBit(subnet1), IntToBit(subnet2), IntToBit(subnet3), IntToBit(subnet4)};
+            var retVal = new List<bool[]> { IntToBit(subnet1), IntToBit(subnet2), IntToBit(subnet3), IntToBit(subnet4) };
 
             return retVal;
         }
@@ -184,10 +177,10 @@ namespace Projekt_4.Library
 
             var memory = Convert.ToInt32(integer);
 
-            for (int i = 0; i < retVal.Length; i++)
+            for (var i = 0; i < retVal.Length; i++)
             {
-                retVal[i] = memory % 2 == 1;
-                memory /= 2;
+                retVal[i] =  memory % 2 == 1;
+                memory    /= 2;
             }
 
             return retVal;

@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -12,8 +11,8 @@ namespace Projekt_4
     public partial class MainWindow : Window
     {
         private readonly List<IpAddressModel> addresses;
-        private readonly DataAccessHelper dataLayer;
-        private readonly AddressManager manager;
+        private readonly DataAccessHelper     dataLayer;
+        private readonly AddressManager       manager;
 
         public MainWindow()
         {
@@ -22,21 +21,21 @@ namespace Projekt_4
 
             dataLayer = new DataAccessHelper();
             addresses = new List<IpAddressModel>();
-            manager = new AddressManager();
+            manager   = new AddressManager();
 
             Refresh();
         }
 
-        private void OnClick_AddAddress(object sender, RoutedEventArgs e)
+        private void OnClick_UpsertAddress(object sender, RoutedEventArgs e)
         {
             try
             {
                 var newModel = CreateAddressModel();
-                var oldModel = AddressListBox.SelectedItems.Count > 0 ? (IpAddressModel)AddressListBox.SelectedItems[0] : null;
+                var oldModel = AddressListBox.SelectedItems.Count > 0 ? (IpAddressModel) AddressListBox.SelectedItems[0] : null;
 
                 manager.CalculateCidrNotation(subnet1.Text, subnet2.Text, subnet3.Text, subnet4.Text, newModel);
-                
-                dataLayer.AddIpAddress(newModel, oldModel);
+
+                dataLayer.UpsertIpAddress(newModel, oldModel);
                 ClearTextboxes();
                 Refresh();
             }
@@ -50,7 +49,7 @@ namespace Projekt_4
         {
             try
             {
-                var selectedAddress = (IpAddressModel)AddressListBox.SelectedItems[0];
+                var selectedAddress = (IpAddressModel) AddressListBox.SelectedItems[0];
                 RenderIpAddress(selectedAddress);
 
                 var defaultSubnet = manager.GenerateDefaultSubnetMask(selectedAddress);
@@ -118,7 +117,7 @@ namespace Projekt_4
             if (!string.IsNullOrWhiteSpace(subnet1.Text) && !string.IsNullOrWhiteSpace(subnet2.Text) &&
                 !string.IsNullOrWhiteSpace(subnet3.Text) && !string.IsNullOrWhiteSpace(subnet4.Text))
             {
-                var model = ModelProvider.Create(byte1.Text, byte2.Text, byte3.Text, byte4.Text);
+                var model          = ModelProvider.Create(byte1.Text, byte2.Text, byte3.Text, byte4.Text);
                 var networkAddress = manager.CalculateNetworkAddress(subnet1.Text, subnet2.Text, subnet3.Text, subnet4.Text, model);
                 RenderNetworkAddress(networkAddress);
 
@@ -163,7 +162,7 @@ namespace Projekt_4
             subnet2.Clear();
             subnet3.Clear();
             subnet4.Clear();
-            NetworkAddress.Text = string.Empty;
+            NetworkAddress.Text   = string.Empty;
             BroadcastAddress.Text = string.Empty;
         }
 
@@ -207,6 +206,7 @@ namespace Projekt_4
         {
             NetworkAddress.Text = $"{input[0]}.{input[1]}.{input[2]}.{input[3]}";
         }
+
         private void RenderBroadcastAddress(int[] broadcastAddress)
         {
             BroadcastAddress.Text = $"{broadcastAddress[0]}.{broadcastAddress[1]}.{broadcastAddress[2]}.{broadcastAddress[3]}";

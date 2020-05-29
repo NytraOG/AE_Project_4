@@ -10,12 +10,12 @@ namespace Projekt_4.Library.Models
             Id = GenerateRandomId();
         }
 
-        public int Id { get; }
-        public int Byte_1 { get; set; }
-        public int Byte_2 { get; set; }
-        public int Byte_3 { get; set; }
-        public int Byte_4 { get; set; }
-        public int Subnet { get; set; }
+        public int       Id             { get; }
+        public int       Byte_1         { get; set; }
+        public int       Byte_2         { get; set; }
+        public int       Byte_3         { get; set; }
+        public int       Byte_4         { get; set; }
+        public int       Subnet         { get; set; }
         public IpAddress Classification { get; set; }
 
         public override string ToString()
@@ -26,7 +26,7 @@ namespace Projekt_4.Library.Models
         private int GenerateRandomId()
         {
             var retVal = string.Empty;
-            var rng = new Random();
+            var rng    = new Random();
 
             for (var i = 0; i < 9; i++)
             {

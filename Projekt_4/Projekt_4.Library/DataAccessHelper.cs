@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
 using System.Data.SQLite;
@@ -19,7 +18,7 @@ namespace Projekt_4.Library
 
             using (IDbConnection connection = new SQLiteConnection(connString))
             {
-                var query = "select * from IpAddress";
+                var query  = "select * from IpAddress";
                 var result = connection.Query<IpAddressModel>(query, new DynamicParameters()).ToList();
 
                 list.AddRange(result);
@@ -28,11 +27,11 @@ namespace Projekt_4.Library
             return list;
         }
 
-        public void AddIpAddress(IpAddressModel newAddress, IpAddressModel oldAddress)
+        public void UpsertIpAddress(IpAddressModel newAddress, IpAddressModel oldAddress)
         {
             var connString = LoadConnectionstring();
 
-            if(oldAddress != null)
+            if (oldAddress != null)
                 DeleteEntry(oldAddress);
 
             using (IDbConnection connection = new SQLiteConnection(connString))

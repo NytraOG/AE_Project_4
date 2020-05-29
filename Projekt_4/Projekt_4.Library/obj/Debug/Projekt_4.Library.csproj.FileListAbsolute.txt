@@ -16,7 +16,6 @@ D:\Repos\AE_Project_4\Projekt_4\Projekt_4.Library\bin\Debug\System.Data.SQLite.d
 D:\Repos\AE_Project_4\Projekt_4\Projekt_4.Library\bin\Debug\Dapper.xml
 D:\Repos\AE_Project_4\Projekt_4\Projekt_4.Library\bin\Debug\System.Data.SQLite.xml
 D:\Repos\AE_Project_4\Projekt_4\Projekt_4.Library\bin\Debug\System.Data.SQLite.dll.config
-D:\Repos\AE_Project_4\Projekt_4\Projekt_4.Library\obj\Debug\Projekt_4.Library.csprojAssemblyReference.cache
 D:\Repos\AE_Project_4\Projekt_4\Projekt_4.Library\obj\Debug\Projekt_4.Library.csproj.CoreCompileInputs.cache
 D:\Repos\AE_Project_4\Projekt_4\Projekt_4.Library\obj\Debug\Projekt_4.Library.csproj.CopyComplete
 D:\Repos\AE_Project_4\Projekt_4\Projekt_4.Library\obj\Debug\Projekt_4.Library.dll
