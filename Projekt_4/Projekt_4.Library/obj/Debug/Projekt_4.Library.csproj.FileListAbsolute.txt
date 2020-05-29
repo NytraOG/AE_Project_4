@@ -20,3 +20,4 @@ D:\Repos\AE_Project_4\Projekt_4\Projekt_4.Library\obj\Debug\Projekt_4.Library.cs
 D:\Repos\AE_Project_4\Projekt_4\Projekt_4.Library\obj\Debug\Projekt_4.Library.csproj.CopyComplete
 D:\Repos\AE_Project_4\Projekt_4\Projekt_4.Library\obj\Debug\Projekt_4.Library.dll
 D:\Repos\AE_Project_4\Projekt_4\Projekt_4.Library\obj\Debug\Projekt_4.Library.pdb
+D:\Repos\AE_Project_4\Projekt_4\Projekt_4.Library\obj\Debug\Projekt_4.Library.csprojAssemblyReference.cache

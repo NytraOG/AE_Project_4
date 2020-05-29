@@ -166,12 +166,12 @@ namespace Projekt_4.Library
 
         private List<bool[]> AddressToBits(string subnet1, string subnet2, string subnet3, string subnet4)
         {
-            var retVal = new List<bool[]> { IntToBit(subnet1), IntToBit(subnet2), IntToBit(subnet3), IntToBit(subnet4) };
+            var retVal = new List<bool[]> { StringToBit(subnet1), StringToBit(subnet2), StringToBit(subnet3), StringToBit(subnet4) };
 
             return retVal;
         }
 
-        private bool[] IntToBit(string integer)
+        private bool[] StringToBit(string integer)
         {
             var retVal = new bool[8];
 
